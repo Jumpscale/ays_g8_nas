@@ -1,0 +1,2 @@
+password = type:str
+os = type:str parent:os

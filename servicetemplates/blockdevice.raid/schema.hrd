@@ -1,0 +1,3 @@
+node = type:str parent:'node'
+disks = type:str list
+raid = type:int defualt:0
