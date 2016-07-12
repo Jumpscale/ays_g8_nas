@@ -35,7 +35,7 @@ user.os__geert:
     os: os_vm
 
 user.os__azmy:
-    password: 'irunupanddownonpiramids'
+    password: 'irunupanddownonpyramids'
     os: os_vm
 
 blockdevice.raid__vm_share:
