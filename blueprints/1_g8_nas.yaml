@@ -1,8 +1,8 @@
 g8client__main:
-    g8.url: 'du-conv-3.demo.greenitglobe.com'
-    g8.login: '*******'
-    g8.password: '******'
-    g8.account: '******'
+    g8.url: 'be-conv-2.demo.greenitglobe.com'
+    g8.login: 'rthursday'
+    g8.password: '********'
+    g8.account: 'rthursday'
 
 vdcfarm__main:
 
@@ -14,12 +14,14 @@ node.ovc__vm:
     os.image: 'ubuntu 16.04 x64'
     disk.size: 10
     datadisks:
-        -'name:disk1 size:2000 type:normal'
-        -'name:disk2 size:2000 type:normal'
+        - 'name:disk1 size:50 type:normal'
+        - 'name:disk2 size:50 type:normal'
     os.size: 2
     ports:
-        - '22:2022'
-        - '82:2082'
+        - '139:139'
+        - '445:445'
+        - '137:137'
+        - '138:138'
     vdc: 'main'
 
 os.ssh.ubuntu__os_vm:
@@ -37,7 +39,7 @@ user.os__azmy:
     os: os_vm
 
 blockdevice.raid__vm_share:
-    node: 'vm'
+    os: 'os_vm'
     disks:
         - 'disk1'
         - 'disk2'
@@ -47,7 +49,8 @@ mount__nas:
     blockdevice: 'vm_share'
     filesystem: 'ext4'
     location: '/var/nas'
-    options: 'ro'
+    options: 'rw'
+    os: 'os_vm'
         
 share.samba__main:
     mount: 'nas'

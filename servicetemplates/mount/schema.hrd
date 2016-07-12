@@ -2,3 +2,4 @@ blockdevice = type:str consume:'blockdevice'
 filesystem = type:str default:'ext4'
 location = type:str default:'/var/nas'
 options = type:str default:'ro'
+os = type:str parent:os
