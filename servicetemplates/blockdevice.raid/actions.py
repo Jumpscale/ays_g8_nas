@@ -15,7 +15,8 @@ class Actions(ActionsBaseMgmt):
                     data_disks.append('/dev/vd' + chr(ord('b') + index))  # to get disk name
 
         cuisine = service.executor.cuisine
-        cuisine.core.run('DEBIAN_FRONTEND=noninteractive apt-get install mdadm -y', die=False)
+        cuisine.package.update()
+        cuisine.package.install('mdadm')
 
         # create raid array
         cuisine.core.run('mdadm --create /dev/md0 --level=raid%i --raid-devices=%s %s' % (service.hrd.getInt('raid'), len(data_disks),
